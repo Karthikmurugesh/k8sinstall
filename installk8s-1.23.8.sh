@@ -24,7 +24,7 @@ echo "     STEP 4: Starting Docker Deamon and enable Service....."
         sh get-docker.sh 1>/dev/null
 
 echo "     STEP 5: C-Group Error Fix and Restarting Components"
-        echo "{ \n \"exec-opts\": [\"native.cgroupdriver=systemd\"]\n}" > /etc/docker/daemon.json
+        echo "{ \n \"exec-opts\": [\"native.cgroupdriver=cgroupfs\"]\n}" > /etc/docker/daemon.json
         systemctl daemon-reload
         systemctl restart docker
 echo "            -> Done"
